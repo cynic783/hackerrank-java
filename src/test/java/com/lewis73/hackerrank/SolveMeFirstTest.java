@@ -6,11 +6,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.*;
 
-class SimpleArraySumTest {
+class SolveMeFirstTest {
 
     @Test
-    void happy() {
+    void happyPositive() {
         assertThat(SolveMeFirst.solveMeFirst(1, 1), is(2));
+    }
+
+    @Test
+    void happyNegative() {
+        assertThat(SolveMeFirst.solveMeFirst(-1, -1), is(-2));
     }
 
     @Test

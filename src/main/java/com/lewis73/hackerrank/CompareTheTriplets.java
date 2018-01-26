@@ -38,10 +38,9 @@ public class CompareTheTriplets {
             throw new IllegalArgumentException("values must be in range 1..100");
         }
 
-        Stream<List<Integer>> pairs = Stream.of(Arrays.asList(a0, b0), Arrays.asList(a1, b1), Arrays.asList(a2, b2));
-        Stream<List<Integer>> pairsCop = Stream.of(Arrays.asList(a0, b0), Arrays.asList(a1, b1), Arrays.asList(a2, b2));
-        int scoreA = pairs.reduce(0, (i, l) -> i + l.get(0) > l.get(1) ? 1 : 0, (i, j) -> i + j);
-        int scoreB = pairsCop.reduce(0, (i, l) -> i + l.get(1) > l.get(0) ? 1 : 0, (i, j) -> i + j);
+        List<List<Integer>> pairs = Arrays.asList(Arrays.asList(a0, b0), Arrays.asList(a1, b1), Arrays.asList(a2, b2));
+        int scoreA = pairs.stream().reduce(0, (i, l) -> i + l.get(0) > l.get(1) ? 1 : 0, (i, j) -> i + j);
+        int scoreB = pairs.stream().reduce(0, (i, l) -> i + l.get(1) > l.get(0) ? 1 : 0, (i, j) -> i + j);
         return new int [] {scoreA, scoreB};
     }
 
